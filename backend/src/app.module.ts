@@ -1,14 +1,21 @@
-import { Module } from '@nestjs/common';
+import { Module, CacheModule, OnModuleInit } from '@nestjs/common';
+import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { UsersModule } from './app/users/users.module';
+
+import { TypeormService } from './database';
 
 @Module({
   imports: [
-    UsersModule
+    TypeOrmModule.forRootAsync({
+      useClass: TypeormService,
+    }),
   ],
   controllers: [AppController],
-  providers: [AppService]
+  providers: [AppService],
 })
-
-export class AppModule {}
+export class AppModule implements OnModuleInit {
+  onModuleInit() {
+    console.log('The module has been initialized.');
+  }
+}
