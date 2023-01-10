@@ -7,7 +7,7 @@ import { MONGO_URL } from '../config';
 @Injectable()
 export class TypeormService implements TypeOrmOptionsFactory {
   async createTypeOrmOptions(): Promise<TypeOrmModuleOptions> {
-    const options = {
+    const options: any = {
       url: MONGO_URL,
       type: 'mongodb',
       entities: getMetadataArgsStorage().tables.map((tbl) => tbl.target),
@@ -17,14 +17,13 @@ export class TypeormService implements TypeOrmOptionsFactory {
       keepConnectionAlive: true,
       logging: true,
     };
+
     createConnection(options)
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      .then((data) => {
-        Logger.log(`☁️  MongoDB was connected`, 'TypeORM', false);
+      .then(() => {
+        Logger.log(`☁️  MongoDB was connected using TypeORM`);
       })
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      .catch((err) => {
-        Logger.error(`❌  MongoDB connect error`, '', 'TypeORM', false);
+      .catch(() => {
+        Logger.error(`❌  MongoDB connect error while using the TypeORM`);
       });
 
     return options;
