@@ -1,7 +1,7 @@
+import React from "react";
 import { DevTool } from "@hookform/devtools";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Paper } from "@mui/material";
-import React from "react";
 import { useForm } from "react-hook-form";
 import { object, ref, string } from "yup";
 import SocialButton from "../buttons/SocialButton";
@@ -17,29 +17,24 @@ interface SignUpFormState {
   retypePassword: string;
 }
 
-const passwordValidPattern =
-  /(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!?@#$%^&*()\-+\\\/.,:;"'{}\[\]<>~])[A-Za-z0-9!?@#$%^&*()\-+\\\/.,:;"'{}\[\]<>~]{8,}/;
+const passwordValidPattern = /(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!?@#$%^&*()\-+\\\/.,:;"'{}\[\]<>~])[A-Za-z0-9!?@#$%^&*()\-+\\\/.,:;"'{}\[\]<>~]{8,}/;
 
 const schema = object({
   firstName: string().required("Please enter your first name"),
   lastName: string().required("Please enter your last name"),
-  email: string()
-    .required("Please enter your email address")
-    .email("Please insert a valid mail"),
+  email: string().required("Please enter your email address").email("Please insert a valid mail"),
   retypeEmail: string()
     .required("Please enter your email address")
     .email("Please insert a valid mail")
     .oneOf([ref("email")], "Email does not match"),
-  password: string()
-    .required("Please enter a password")
-    .matches(passwordValidPattern, "Please insert a valid password"),
+  password: string().required("Please enter a password").matches(passwordValidPattern, "Please insert a valid password"),
   retypePassword: string()
     .required("Please enter a password")
     .matches(passwordValidPattern, "Please insert a valid password")
     .oneOf([ref("password")], "Passwords does not match"),
 }).required();
 
-export const SignUpForm: React.FC = () => {
+const SignUpForm: React.FC = () => {
   const form = useForm<SignUpFormState>({
     defaultValues: {
       firstName: "",
@@ -58,46 +53,13 @@ export const SignUpForm: React.FC = () => {
   return (
     <Paper elevation={0}>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <TextInput
-          name="firstName"
-          control={control}
-          label="First Name"
-          required
-        />
-        <TextInput
-          name="lastName"
-          control={control}
-          label="Last Name"
-          required
-        />
+        <TextInput name="firstName" control={control} label="First Name" required />
+        <TextInput name="lastName" control={control} label="Last Name" required />
         <TextInput name="email" control={control} label="Email" required />
-        <TextInput
-          name="retypeEmail"
-          control={control}
-          label="Retype Email"
-          required
-        />
-        <TextInput
-          name="password"
-          type="password"
-          control={control}
-          label="Password"
-          required
-        />
-        <TextInput
-          name="retypePassword"
-          type="password"
-          control={control}
-          label="Retype Password"
-          required
-        />
-        <SocialButton
-          customColor="#4285F4"
-          variant="contained"
-          type="submit"
-          sx={{ marginTop: "24px" }}
-          fullWidth
-        >
+        <TextInput name="retypeEmail" control={control} label="Retype Email" required />
+        <TextInput name="password" type="password" control={control} label="Password" required />
+        <TextInput name="retypePassword" type="password" control={control} label="Retype Password" required />
+        <SocialButton customColor="#4285F4" variant="contained" type="submit" sx={{ marginTop: "24px" }} fullWidth>
           SIGN UP
         </SocialButton>
       </form>
@@ -105,3 +67,5 @@ export const SignUpForm: React.FC = () => {
     </Paper>
   );
 };
+
+export default SignUpForm;

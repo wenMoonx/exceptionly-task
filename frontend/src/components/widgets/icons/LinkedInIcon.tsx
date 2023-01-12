@@ -1,7 +1,11 @@
-import { SvgIcon } from "@mui/material";
 import React from "react";
+import { SvgIcon } from "@mui/material";
 
-export const LinkedInIcon: React.FC = (props) => {
+type IProps = {
+  style: object;
+};
+
+export const LinkedInIcon: React.FC<IProps> = (props) => {
   return (
     <SvgIcon fill="none" viewBox="0 0 18 18" {...props}>
       <path

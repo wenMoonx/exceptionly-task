@@ -1,21 +1,11 @@
-import {
-  alpha,
-  Box,
-  Button,
-  Card,
-  CardActions,
-  CardContent,
-  CardMedia,
-  Collapse,
-  Typography,
-} from "@mui/material";
-import Fade from "@mui/material/Fade";
 import React from "react";
+import { alpha, Box, Button, Card, CardActions, CardContent, CardMedia, Collapse, Typography } from "@mui/material";
+import Fade from "@mui/material/Fade";
 
 import { ButtonsArea } from "./ButtonsArea";
-import SignInForm from "./forms/SignInForm";
-import { SignUpForm } from "./forms/SignUpForm";
 import { ExceptionlyLogo } from "./icons/ExceptionlyLogo";
+import SignInForm from "./forms/SignInForm";
+import SignUpForm from "./forms/SignUpForm";
 
 export const SignUpBoard = () => {
   const [isCreateMode, setIsCreateMode] = React.useState<boolean>(false);
@@ -33,23 +23,14 @@ export const SignUpBoard = () => {
             fontWeight: "normal",
             fontSize: "20px",
             lineHeight: "24px",
-
-            /* identical to box height, or 150% */
             letterSpacing: "0.15px",
-
-            /* Text/Primary - Error */
             color: alpha("#000", 0.76),
             margin: "0 auto 8px",
           }}
         >
-          Sign {isCreateMode ? "up" : "in"} to your account
+          Sign {isCreateMode ? "Up" : "In"} to your account
         </Typography>
-        <Collapse
-          in={isCreateMode}
-          collapsedSize={440}
-          easing="easeOut"
-          timeout={250}
-        >
+        <Collapse in={isCreateMode} collapsedSize={440} easing="easeOut" timeout={250}>
           <Fade in={!isCreateMode} easing="easeOut" timeout={250}>
             <div style={{ display: isCreateMode ? "none" : "block" }}>
               <SignInForm />
@@ -65,10 +46,7 @@ export const SignUpBoard = () => {
         </Collapse>
       </CardContent>
       <CardActions sx={{ backgroundColor: alpha("#252525", 0.9) }}>
-        <Box
-          component="div"
-          sx={{ display: "flex", margin: "8px auto", alignItems: "center" }}
-        >
+        <Box component="div" sx={{ display: "flex", margin: "8px auto", alignItems: "center" }}>
           <Typography
             variant="body2"
             sx={{
@@ -76,19 +54,13 @@ export const SignUpBoard = () => {
               fontWeight: "normal",
               fontSize: "14px",
               lineHeight: "20px",
-
-              /* identical to box height, or 150% */
               letterSpacing: "0.25px",
-
-              /* Text/Primary - Error */
               color: alpha("#fff", 0.87),
             }}
           >
             {isCreateMode ? "Already" : "Don't"} have an account?
           </Typography>
-          <Button onClick={() => setIsCreateMode((prevState) => !prevState)}>
-            {isCreateMode ? "SIGN IN HERE" : "Create an account"}
-          </Button>
+          <Button onClick={() => setIsCreateMode((prevState) => !prevState)}>{isCreateMode ? "SIGN IN HERE" : "Create an account"}</Button>
         </Box>
       </CardActions>
     </Card>

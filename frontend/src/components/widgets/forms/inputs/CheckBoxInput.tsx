@@ -1,12 +1,14 @@
-import { alpha, Checkbox, FormControlLabel } from "@mui/material";
 import React from "react";
+import { alpha, Checkbox, FormControlLabel } from "@mui/material";
 import { Controller } from "react-hook-form";
 
-export const CheckBoxInput: React.FC<InputProps> = ({
-  name,
-  control,
-  label,
-}) => {
+type IProps = {
+  name: string;
+  control: any;
+  label: string;
+};
+
+export const CheckBoxInput: React.FC<IProps> = ({ name, control, label }) => {
   return (
     <Controller
       name={name}

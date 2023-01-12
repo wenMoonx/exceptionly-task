@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  IResolveParams,
-  LoginSocialGoogle,
-  LoginSocialLinkedin,
-  LoginSocialMicrosoft,
-} from "reactjs-social-login";
+import { IResolveParams, LoginSocialGoogle, LoginSocialLinkedin, LoginSocialMicrosoft } from "reactjs-social-login";
 
 import SocialButton from "./buttons/SocialButton";
 import { GoogleIcon } from "./icons/GoogleIcon";
@@ -42,7 +37,7 @@ export const ButtonsArea: React.FC<ButtonsAreaProps> = ({ compat }) => {
   return (
     <>
       <p>OR {compat && "SIGN UP USING"}</p>
-      {socialButtons.map((socialButton) => (
+      {socialButtons.map((socialButton: any) => (
         <socialButton.social
           redirect_uri={REDIRECT_URI}
           client_id=""
@@ -50,7 +45,7 @@ export const ButtonsArea: React.FC<ButtonsAreaProps> = ({ compat }) => {
           onResolve={({ provider, data }: IResolveParams) => {
             console.log("Result: ", { provider, data });
           }}
-          onReject={(err) => {
+          onReject={(err: any) => {
             console.log(err);
           }}
         >
@@ -66,7 +61,6 @@ export const ButtonsArea: React.FC<ButtonsAreaProps> = ({ compat }) => {
                     margin: "8px",
                     padding: "10px",
                     minWidth: "36px",
-
                     "> .MuiButton-startIcon": {
                       margin: 0,
                     },
