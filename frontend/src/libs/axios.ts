@@ -28,19 +28,17 @@ instance.interceptors.request.use(
 instance.interceptors.response.use(
   (response: any) => {
     if (response.status === 200 || response.status === 201) {
-      return Promise.resolve(response.data);
+      if (response.data.code === 200) {
+        return Promise.resolve(response.data);
+      } else {
+        return Promise.resolve(response);
+      }
     } else {
       return Promise.reject(response);
     }
   },
   async (error: any) => {
     toast.error(error.response.data.message);
-    // const request = error.config;
-    // if (error.response.status === 403 && !request._retry) {
-    //   request._retry = true;
-    //   return instance(request);
-    // }
-
     return Promise.reject(error);
   }
 );

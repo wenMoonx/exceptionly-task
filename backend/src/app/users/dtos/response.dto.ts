@@ -11,7 +11,7 @@ export class LoginRespDto {
   readonly user: User;
 
   @IsNotEmpty()
-  readonly token: string;
+  readonly authToken: string;
 
   @IsNotEmpty()
   readonly expiresIn: number;

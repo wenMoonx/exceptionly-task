@@ -9,6 +9,11 @@ import SignUpForm from "./forms/SignUpForm";
 
 export const SignUpBoard = () => {
   const [isCreateMode, setIsCreateMode] = React.useState<boolean>(false);
+
+  const toggleIsCreateMode = () => {
+    setIsCreateMode((prev) => !prev);
+  };
+
   return (
     <Card elevation={0} sx={{ borderRadius: "0px 4px 4px 0px" }}>
       <CardMedia sx={{ margin: "60px auto 8px" }}>
@@ -39,8 +44,8 @@ export const SignUpBoard = () => {
           </Fade>
           <Fade in={isCreateMode} easing="easeOut" timeout={250}>
             <div style={{ display: isCreateMode ? "block" : "none" }}>
-              <SignUpForm />
-              <ButtonsArea compat />
+              <SignUpForm toggleIsCreateMode={toggleIsCreateMode} />
+              <ButtonsArea />
             </div>
           </Fade>
         </Collapse>
@@ -60,7 +65,7 @@ export const SignUpBoard = () => {
           >
             {isCreateMode ? "Already" : "Don't"} have an account?
           </Typography>
-          <Button onClick={() => setIsCreateMode((prevState) => !prevState)}>{isCreateMode ? "SIGN IN HERE" : "Create an account"}</Button>
+          <Button onClick={() => toggleIsCreateMode()}>{isCreateMode ? "SIGN IN HERE" : "Create an account"}</Button>
         </Box>
       </CardActions>
     </Card>

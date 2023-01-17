@@ -7,9 +7,7 @@ body {
 
 /* use viewport-relative units to cover page fully */
 body {
-  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -20,6 +18,6 @@ body {
 }
 
 #root {
-  background: center center no-repeat url('src/public/assets/images/background.png');
+  background: center center no-repeat url("src/public/assets/images/background.png");
   width: 100%;
 }

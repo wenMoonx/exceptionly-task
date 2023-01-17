@@ -8,7 +8,7 @@ type IProps = {
   label: string;
 };
 
-export const CheckBoxInput: React.FC<IProps> = ({ name, control, label }) => {
+const CheckBoxInput: React.FC<IProps> = ({ name, control, label }) => {
   return (
     <Controller
       name={name}
@@ -22,11 +22,7 @@ export const CheckBoxInput: React.FC<IProps> = ({ name, control, label }) => {
             fontWeight: "normal",
             fontSize: "14px",
             lineHeight: "20px",
-
-            /* identical to box height, or 150% */
             letterSpacing: "0.25px",
-
-            /* Text/Primary - Error */
             color: alpha("#000", 0.87),
           }}
         />
@@ -34,3 +30,5 @@ export const CheckBoxInput: React.FC<IProps> = ({ name, control, label }) => {
     />
   );
 };
+
+export default CheckBoxInput;

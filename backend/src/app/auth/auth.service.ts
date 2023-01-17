@@ -32,7 +32,7 @@ export class AuthService {
     const expiresIn = EXPIRES_IN;
 
     return {
-      token: this.jwtService.sign(payload, {
+      authToken: this.jwtService.sign(payload, {
         expiresIn,
       }),
       user,

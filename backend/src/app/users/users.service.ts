@@ -8,6 +8,7 @@ import { getMongoRepository } from 'typeorm';
 
 import { User } from './models/users.entity';
 import { hash } from '../../library/bcrypt';
+import { isEmpty } from '../../library/is-empty';
 import * as message from '../../library/message';
 
 @Injectable()
@@ -21,7 +22,7 @@ export class UsersService {
       },
     });
 
-    if (existedUser) {
+    if (isEmpty(existedUser)) {
       throw new ForbiddenException(message.UserExist);
     }
 
@@ -34,7 +35,7 @@ export class UsersService {
 
     const newUser = await getMongoRepository(User).save(entity);
 
-    return { user: newUser };
+    return { user: newUser, message: message.RegSuccess };
   }
 
   async findAll(): Promise<User[] | undefined> {

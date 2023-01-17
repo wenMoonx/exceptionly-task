@@ -1,13 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import { DevTool } from "@hookform/devtools";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Button, FormGroup, Paper } from "@mui/material";
+import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { object, string } from "yup";
+import { toast } from "react-toastify";
 
+import { AuthContext } from "../../../context";
 import SocialButton from "../buttons/SocialButton";
-import { CheckBoxInput } from "./inputs/CheckBoxInput";
+import CheckBoxInput from "./inputs/CheckBoxInput";
 import TextInput from "./inputs/TextInput";
+import axios from "../../../libs/axios";
+import { loginAction } from "../../../reducers/auth/auth.actions";
+import { isEmpty } from "../../../libs/is-emtpy";
 
 interface SignInFormState {
   email: string;
@@ -27,15 +33,33 @@ const SignInForm: React.FC = () => {
     defaultValues: { email: "", password: "", remember: false },
     resolver: yupResolver(schema),
   });
+  const { dispatchAuth } = useContext(AuthContext);
+  const history = useHistory();
   const { control, handleSubmit } = form;
 
-  const onSubmit = (data: SignInFormState) => console.log(data);
+  const onSubmit = async (data: SignInFormState) => {
+    const result = await axios.post("login", data);
+
+    if (!isEmpty(result.data.authToken)) {
+      toast.success("Login Success!");
+      dispatchAuth(
+        loginAction({
+          isAuthenticated: true,
+          authToken: result.data.authToken,
+          user: result.data.user,
+        })
+      );
+      history.push("/dashboard");
+    } else {
+      // toast.error(result.respones.data.message ? result.respones.data.message : "Login Failed!");
+    }
+  };
 
   return (
     <Paper elevation={0}>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <TextInput name="email" control={control} label="Email" required />
-        <TextInput name="password" type="password" control={control} label="Password" required />
+        <TextInput name="email" control={control} label="Email" />
+        <TextInput name="password" type="password" control={control} label="Password" />
         <FormGroup row sx={{ alignItems: "center" }}>
           <CheckBoxInput name="remember" control={control} label="Remember Me" />
           <Button

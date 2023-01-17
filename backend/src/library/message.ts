@@ -1,5 +1,6 @@
-const Unauthorized = 'Your info is incorrect. Plz try again.';
-const UserNotFound = 'Cannot find the user.';
-const UserExist = 'The user already exist.';
+const Unauthorized = 'Registration information is incorrect.Try again.';
+const UserNotFound = 'User information not found.';
+const UserExist = 'User already exists.';
+const RegSuccess = 'You have been registered successfully.';
 
-export { Unauthorized, UserNotFound, UserExist };
+export { Unauthorized, UserNotFound, UserExist, RegSuccess };
