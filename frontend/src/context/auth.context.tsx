@@ -7,7 +7,7 @@ import { InitialState } from '../types/auth';
 interface AuthContextData {
   user: InitialState;
   dispatchAuth: React.Dispatch<Action>;
-} /// testdfaddssda
+} /// testdfaddssda this is test for husky!
 
 export const AuthContext = createContext<AuthContextData>({
   user: initialState,
