@@ -7,22 +7,20 @@ import {
   UseGuards,
 } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
-import { AppService } from './app.service';
+import { ApiBody, ApiResponse } from '@nestjs/swagger';
 import { AuthService } from './app/auth/auth.service';
 import { LoginRespDto } from './app/users/dtos/response.dto';
+import { LoginDto } from './app/users/dtos/users.dto';
 
 @Controller()
 export class AppController {
-  constructor(
-    private readonly appService: AppService,
-    private readonly authService: AuthService,
-  ) {}
+  constructor(private readonly authService: AuthService) {}
 
-  @Get()
-  get(): string {
-    return this.appService.get();
-  }
-
+  @ApiBody({ type: LoginDto })
+  @ApiResponse({
+    status: 200,
+    type: LoginRespDto,
+  })
   @UseGuards(AuthGuard('local'))
   @Post('login')
   login(@Request() req): Promise<LoginRespDto> {

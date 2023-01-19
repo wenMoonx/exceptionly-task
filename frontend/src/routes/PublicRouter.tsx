@@ -1,7 +1,7 @@
-import React, { useContext } from "react";
-import { Redirect, Route } from "react-router-dom";
+import React, { useContext } from 'react';
+import { Redirect, Route } from 'react-router-dom';
 
-import { AuthContext } from "../context";
+import { AuthContext } from '../context';
 
 type IProps = { component: any; path: string };
 

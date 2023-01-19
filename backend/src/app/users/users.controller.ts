@@ -8,7 +8,9 @@ import {
   UseInterceptors,
   Body,
 } from '@nestjs/common';
+import { ApiBody, ApiResponse } from '@nestjs/swagger';
 import { AuthGuard } from '@nestjs/passport';
+import { RegisterRespDto } from './dtos/response.dto';
 
 import { RegisterDto } from './dtos/users.dto';
 import { UsersService } from './users.service';
@@ -18,20 +20,13 @@ import { UsersService } from './users.service';
 export class UsersController {
   constructor(private readonly userService: UsersService) {}
 
-  @UseGuards(AuthGuard('jwt'))
-  @Get()
-  findAll() {
-    return this.userService.findAll();
-  }
-
+  @ApiBody({ type: RegisterDto })
+  @ApiResponse({
+    status: 200,
+    type: RegisterRespDto,
+  })
   @Post()
-  async create(@Body() userDto: RegisterDto) {
+  async create(@Body() userDto: RegisterDto): Promise<RegisterRespDto> {
     return await this.userService.create(userDto);
-  }
-
-  @UseGuards(AuthGuard('jwt'))
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.userService.findById(id);
   }
 }

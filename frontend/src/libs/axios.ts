@@ -1,15 +1,15 @@
-import axios from "axios";
-import { toast } from "react-toastify";
+import axios from 'axios';
+import { toast } from 'react-toastify';
 
-import { BASE_URL, TIMEOUT } from "./config";
+import { BASE_URL, TIMEOUT } from './config';
 
 const instance = axios.create({
   baseURL: BASE_URL,
   timeout: TIMEOUT,
   headers: {
-    "Content-Type": "application/json",
-    "Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+    'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
   },
 });
 

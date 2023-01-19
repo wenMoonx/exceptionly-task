@@ -1,13 +1,14 @@
-import { useContext } from "react";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
-import IconButton from "@mui/material/IconButton";
-import { useHistory } from "react-router-dom";
-import { logoutAction } from "../../reducers/auth/auth.actions";
-import { AuthContext } from "../../context";
+/* eslint-disable react/react-in-jsx-scope */
+import { useContext } from 'react';
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
+import { useHistory } from 'react-router-dom';
+import { logoutAction } from '../../reducers/auth/auth.actions';
+import { AuthContext } from '../../context';
 
 export default function Header() {
   const { dispatchAuth, user } = useContext(AuthContext);
@@ -15,7 +16,7 @@ export default function Header() {
 
   const logout = () => {
     dispatchAuth(logoutAction());
-    history.push("/auth");
+    history.push('/auth');
   };
 
   return (
@@ -26,7 +27,7 @@ export default function Header() {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Exceptionly Task
           </Typography>
-          <Typography variant="h5" component="div" sx={{ flexGrow: 0, marginLeft: "10px" }}>
+          <Typography variant="h5" component="div" sx={{ flexGrow: 0, marginLeft: '10px' }}>
             {user.user.firstName} {user.user.lastName} |
           </Typography>
           <Button color="inherit" onClick={() => logout()}>

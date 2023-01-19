@@ -1,5 +1,5 @@
-import React from "react";
-import { SvgIcon } from "@mui/material";
+import React from 'react';
+import { SvgIcon } from '@mui/material';
 
 type IProps = {
   style: object;
@@ -90,7 +90,7 @@ export const WelcomeLogo: React.FC<IProps> = (props) => {
         fill="url(#n)"
         d="M38.314 198.981C35.002 136.72 174.776 53.963 227.194 59.915c-9.017-6.629-18.368-11.538-22.868-12.686-4.5-1.148-10.147-1.334-16.681-.568-3.533.26-5.683-1.236-1.246-1.925 4.952-.97 10.066-1.026 17.431-.51 1.581.205 2.584-1.145 1.744-2.69-1.517-2.177-7.499-4.452-23.521-1.105C86.969 60.476 50.955 119.848 37.802 145.679c-1.301.311 1.808-4.663 2.477-8.102 1.267-5.169-5.339-6.502-8.515 15.679-2.425 17.293 2.63 38.514 6.685 49.66-.171-1.176-.09-2.624-.135-3.935Z"
       />
-      <g fill="#F55D55" style={{ mixBlendMode: "color" }}>
+      <g fill="#F55D55" style={{ mixBlendMode: 'color' }}>
         <use xlinkHref="#reuse-0" />
         <use xlinkHref="#reuse-1" />
         <use xlinkHref="#reuse-2" />
@@ -98,7 +98,7 @@ export const WelcomeLogo: React.FC<IProps> = (props) => {
         <use xlinkHref="#reuse-4" />
         <use xlinkHref="#reuse-5" />
       </g>
-      <g fill="#F55D55" style={{ mixBlendMode: "soft-light" }}>
+      <g fill="#F55D55" style={{ mixBlendMode: 'soft-light' }}>
         <use xlinkHref="#reuse-0" />
         <use xlinkHref="#reuse-1" />
         <use xlinkHref="#reuse-2" />

@@ -1,8 +1,8 @@
-import React, { useReducer, createContext, FC, useEffect } from "react";
+import React, { useReducer, createContext, FC, useEffect } from 'react';
 
-import { initialState, initializer, AuthReducer } from "../reducers/auth/auth.reducer";
-import { Action } from "../reducers/auth/auth.actions";
-import { InitialState } from "../types/auth";
+import { initialState, initializer, AuthReducer } from '../reducers/auth/auth.reducer';
+import { Action } from '../reducers/auth/auth.actions';
+import { InitialState } from '../types/auth';
 
 interface AuthContextData {
   user: InitialState;
@@ -11,6 +11,7 @@ interface AuthContextData {
 
 export const AuthContext = createContext<AuthContextData>({
   user: initialState,
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   dispatchAuth: () => {},
 });
 
@@ -18,7 +19,7 @@ const AuthContextProvider: FC = ({ children }) => {
   const [user, dispatchAuth] = useReducer(AuthReducer, initialState, initializer);
 
   useEffect(() => {
-    localStorage.setItem("auth", JSON.stringify(user));
+    localStorage.setItem('auth', JSON.stringify(user));
   }, [user]);
 
   return <AuthContext.Provider value={{ user, dispatchAuth }}>{children}</AuthContext.Provider>;

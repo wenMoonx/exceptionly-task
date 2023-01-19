@@ -1,5 +1,5 @@
-import React from "react";
-import { SvgIcon } from "@mui/material";
+import React from 'react';
+import { SvgIcon } from '@mui/material';
 
 type IProps = {
   style: object;

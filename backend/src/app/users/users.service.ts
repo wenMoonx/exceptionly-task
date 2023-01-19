@@ -10,10 +10,11 @@ import { User } from './models/users.entity';
 import { hash } from '../../library/bcrypt';
 import { isEmpty } from '../../library/is-empty';
 import * as message from '../../library/message';
+import { RegisterRespDto } from './dtos/response.dto';
 
 @Injectable()
 export class UsersService {
-  async create(registerUserDto: RegisterDto): Promise<any | undefined> {
+  async create(registerUserDto: RegisterDto): Promise<any | RegisterRespDto> {
     const { email, firstName, lastName, password } = registerUserDto;
 
     const existedUser = await getMongoRepository(User).findOne({
@@ -22,7 +23,7 @@ export class UsersService {
       },
     });
 
-    if (isEmpty(existedUser)) {
+    if (!isEmpty(existedUser)) {
       throw new ForbiddenException(message.UserExist);
     }
 
@@ -36,21 +37,5 @@ export class UsersService {
     const newUser = await getMongoRepository(User).save(entity);
 
     return { user: newUser, message: message.RegSuccess };
-  }
-
-  async findAll(): Promise<User[] | undefined> {
-    return getMongoRepository(User).find();
-  }
-
-  async findById(_id: string): Promise<User | undefined> {
-    const foundUser = await getMongoRepository(User).findOne({
-      where: { _id },
-    });
-
-    if (!foundUser) {
-      throw new NotFoundException(message.UserNotFound);
-    }
-
-    return foundUser;
   }
 }

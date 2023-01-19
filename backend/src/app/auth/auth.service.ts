@@ -10,14 +10,14 @@ import { LoginRespDto } from '../users/dtos/response.dto';
 export class AuthService {
   constructor(private readonly jwtService: JwtService) {}
 
-  async validateUser(email: string, password: string): Promise<any> {
+  async validateUser(email: string, pass: string): Promise<any> {
     const user = await getMongoRepository(User).findOne({
       where: {
         email,
       },
     });
 
-    if (user && (await compare(password, user.password))) {
+    if (user && (await compare(pass, user.password))) {
       const { password, ...result } = user;
 
       return result;

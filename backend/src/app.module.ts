@@ -3,6 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AuthModule } from './app/auth/auth.module';
+import { EventsModule } from './app/events/events.module';
 import { UsersModule } from './app/users/users.module';
 import { TypeormService } from './database';
 
@@ -13,6 +14,7 @@ import { TypeormService } from './database';
     }),
     AuthModule,
     UsersModule,
+    EventsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

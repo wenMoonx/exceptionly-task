@@ -1,4 +1,4 @@
-import { AuthActionTypes, InitialState } from "../../types/auth.d";
+import { AuthActionTypes, InitialState } from '../../types/auth.d';
 
 interface ILogin {
   type: AuthActionTypes.LOGIN;
@@ -21,10 +21,11 @@ export const logoutAction = (): ILogout => ({
   type: AuthActionTypes.LOGOUT,
   payload: {
     isAuthenticated: false,
-    authToken: "",
+    authToken: '',
     user: {
-      firstName: "",
-      lastName: "",
+      firstName: '',
+      lastName: '',
+      email: '',
     },
   },
 });

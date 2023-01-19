@@ -1,15 +1,17 @@
-import { Action } from "./auth.actions";
-import { AuthActionTypes, InitialState } from "../../types/auth.d";
+import { Action } from './auth.actions';
+import { AuthActionTypes, InitialState } from '../../types/auth.d';
 
 export const initialState: InitialState = {
   isAuthenticated: false,
-  authToken: "",
+  authToken: '',
   user: {
-    firstName: "",
-    lastName: "",
+    firstName: '',
+    lastName: '',
+    email: '',
   },
 };
-export const initializer = (initialValue = initialState) => JSON.parse(localStorage.getItem("auth") || "{}") || initialValue;
+export const initializer = (initialValue = initialState) =>
+  JSON.parse(localStorage.getItem('auth') || '{}') || initialValue;
 
 export const AuthReducer = (state: InitialState, action: Action): InitialState => {
   switch (action.type) {
@@ -22,10 +24,11 @@ export const AuthReducer = (state: InitialState, action: Action): InitialState =
     case AuthActionTypes.LOGOUT:
       return {
         isAuthenticated: false,
-        authToken: "",
+        authToken: '',
         user: {
-          firstName: "",
-          lastName: "",
+          firstName: '',
+          lastName: '',
+          email: '',
         },
       };
     default:

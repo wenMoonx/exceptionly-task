@@ -1,6 +1,6 @@
-import React from "react";
-import { alpha, Checkbox, FormControlLabel } from "@mui/material";
-import { Controller } from "react-hook-form";
+import React from 'react';
+import { alpha, Checkbox, FormControlLabel } from '@mui/material';
+import { Controller } from 'react-hook-form';
 
 type IProps = {
   name: string;
@@ -18,12 +18,12 @@ const CheckBoxInput: React.FC<IProps> = ({ name, control, label }) => {
           control={<Checkbox onChange={onChange} checked={value} />}
           label={label}
           sx={{
-            fontStyle: "normal",
-            fontWeight: "normal",
-            fontSize: "14px",
-            lineHeight: "20px",
-            letterSpacing: "0.25px",
-            color: alpha("#000", 0.87),
+            fontStyle: 'normal',
+            fontWeight: 'normal',
+            fontSize: '14px',
+            lineHeight: '20px',
+            letterSpacing: '0.25px',
+            color: alpha('#000', 0.87),
           }}
         />
       )}

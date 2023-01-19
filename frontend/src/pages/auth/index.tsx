@@ -1,30 +1,31 @@
-import { Box } from "@mui/material";
+import { Box } from '@mui/material';
 
-import { WelcomeBoard } from "../../components/widgets/WelcomeBoard";
-import { SignUpBoard } from "../../components/widgets/SignUpBoard";
+import { WelcomeBoard } from '../../components/widgets/WelcomeBoard';
+import { SignUpBoard } from '../../components/widgets/SignUpBoard';
 
 const Auth = () => {
   return (
     <div
       className="App"
       style={{
-        display: "flex",
-        justifyContent: "center",
-        flexDirection: "column",
-        alignItems: "center",
-        minHeight: "100vh",
+        display: 'flex',
+        justifyContent: 'center',
+        flexDirection: 'column',
+        alignItems: 'center',
+        minHeight: '100vh',
       }}
     >
       <Box
         component="section"
         sx={{
-          display: "grid",
-          gridTemplateColumns: "repeat(2, 1fr)",
+          display: 'grid',
+          gridTemplateColumns: 'repeat(2, 1fr)',
           width: 850,
-          margin: "auto",
-          background: " #FFFFFF",
-          boxShadow: "0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12)",
-          borderRadius: "4px",
+          margin: 'auto',
+          background: ' #FFFFFF',
+          boxShadow:
+            '0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12)',
+          borderRadius: '4px',
         }}
       >
         <WelcomeBoard />
