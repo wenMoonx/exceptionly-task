@@ -41,8 +41,8 @@ export const ButtonsArea: React.FC<ButtonsAreaProps> = ({ compat }) => {
         <socialButton.social
           key={index}
           redirect_uri={REDIRECT_URI}
-          client_id=""
-          client_secret=""
+          client_id="364756174135-qei3spmq0u0lkb1kv0f0asaooi45ce2n.apps.googleusercontent.com"
+          client_secret="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"
           onResolve={({ provider, data }: IResolveParams) => {
             console.log('Result: ', { provider, data });
           }}

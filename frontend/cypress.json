@@ -1,0 +1,13 @@
+{
+  "baseUrl": "http://localhost:3001",
+  "chromeWebSecurity": false,
+  "numTestsKeptInMemory": 7,
+  "viewportWidth": 1280,
+  "viewportHeight": 800,
+  "component": {
+    "componentFolder": "src",
+    "testFiles": "**/*spec.{js,jsx,ts,tsx}",
+    "viewportHeight": 500,
+    "viewportWidth": 700
+  }
+}

@@ -65,7 +65,7 @@ export const MyCalendar: React.FC<IProps> = ({ localizer }) => {
 
   return (
     <Fragment>
-      <div style={{ height: '700px', maxWidth: '1500px', margin: 'auto', marginTop: '10px' }}>
+      <div style={{ height: '700px', maxWidth: '1500px', margin: 'auto', marginTop: '0px' }}>
         <Calendar
           defaultDate={defaultDate}
           defaultView={Views.MONTH}
