@@ -29,7 +29,7 @@ export const AuthReducer = (state: InitialState, action: Action): InitialState =
           firstName: '',
           lastName: '',
           email: '',
-        },
+        }, //fsdf
       };
     default:
       return state;
