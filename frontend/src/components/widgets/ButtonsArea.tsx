@@ -6,7 +6,7 @@ import { GoogleIcon } from './icons/GoogleIcon';
 import { LinkedInIcon } from './icons/LinkedInIcon';
 import MicrosoftIcon from './icons/MicrosoftIcon';
 
-const REDIRECT_URI = 'http://localhost:3000/';
+const REDIRECT_URI = 'https://connect.wpmailsmtp.com/google/';
 
 const socialButtons = [
   {

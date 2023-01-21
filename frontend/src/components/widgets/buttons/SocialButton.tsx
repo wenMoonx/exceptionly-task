@@ -10,7 +10,7 @@ const SocialButton = styled(Button)<{ customcolor: string }>(
     fontWeight: 500,
     fontSize: 14,
     lineHeight: '16px',
-    letterSpacing: '1.25px',
+    letterSpacing: '1.25px', //tese
     textTransform: 'uppercase',
     color: alpha('#fff', 0.87),
     boxShadow: 'none',
