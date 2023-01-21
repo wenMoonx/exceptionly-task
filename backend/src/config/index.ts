@@ -3,7 +3,7 @@ dotenv.config();
 
 // server
 const HOST: string = process.env.HOST || '127.0.0.1';
-const PORT: number = +process.env.PORT || 3001;
+const PORT: number = +process.env.PORT || 3001; // test port
 
 // jsonwebtoken
 const SECRET_OR_KEY: string = process.env.ACCESS_TOKEN_SECRET || 'secretKey';
